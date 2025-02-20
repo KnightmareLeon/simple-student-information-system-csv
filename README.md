@@ -14,7 +14,7 @@ v2
 - Added javadocs for classes and methods
 - Added Apache license in accordance with Flatlaf that is under the Apache license
 - Added icons downloaded from svgrepo.com; Icons are under CC0 license
-- Added proper recognition for AutoCompletio.java by Thomas Bierhance; Article can be found in http://www.orbital-computer.de/JComboBox/
+- Added proper recognition for AutoCompletion.java by Thomas Bierhance; Article can be found in http://www.orbital-computer.de/JComboBox/
 
 v2 is the latest version for now
 Repository for a school activity on creating a student management system
