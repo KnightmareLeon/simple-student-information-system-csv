@@ -16,5 +16,6 @@ v2
 - Added icons downloaded from svgrepo.com; Icons are under CC0 license
 - Added proper recognition for AutoCompletion.java by Thomas Bierhance; Article can be found in http://www.orbital-computer.de/JComboBox/
 
-v2 is the latest version for now
+v2 is the latest version for now.<br>
+
 Repository for a school activity on creating a student management system
