@@ -41,7 +41,7 @@ public abstract class CSVHandlingTableModel extends DefaultTableModel{
     /**
      * Stores the file directory of the CSV files.
      */
-    private final String FILE_DIRECTORY = "Student Management/src/resources/"
+    private final String FILE_DIRECTORY = "student-management-system/v2/src/resources/"
     + "database/";
 
     /**

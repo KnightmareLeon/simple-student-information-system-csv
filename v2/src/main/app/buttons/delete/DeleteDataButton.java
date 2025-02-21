@@ -22,7 +22,7 @@ import main.app.tables.ManagementTable;
 public abstract class DeleteDataButton extends JButton {
     private final int WIDTH = 135;
     private final int HEIGHT = 30;
-    private ImageIcon thrashCan = new ImageIcon("Student Management/src/resources/icons/subtract-svgrepo-com.png");
+    private ImageIcon thrashCan = new ImageIcon("student-management-system/v2/src/resources/icons/subtract-svgrepo-com.png");
     private Image thrashCanImg = thrashCan.getImage();
     private Image scaledImg = thrashCanImg.getScaledInstance((int)(WIDTH * 0.13),(int)(HEIGHT * 0.55), Image.SCALE_SMOOTH);
     public DeleteDataButton(ManagementTable mTable){

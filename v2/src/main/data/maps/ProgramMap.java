@@ -6,7 +6,7 @@ import java.util.Set;
 
 import main.data.dataClass.Program;
 
-public class ProgramMap extends HashMap<String,Program> implements NameChecker{
+public class ProgramMap extends HashMap<String,Program> implements NameHandler{
     private Set<String> pNames = new HashSet<String>();
 
     public Program put(String key, Program value){

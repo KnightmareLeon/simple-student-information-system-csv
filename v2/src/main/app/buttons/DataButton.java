@@ -28,7 +28,7 @@ public abstract class DataButton extends JButton{
 
     protected final int WIDTH = 135;
     protected final int HEIGHT = 30;
-    protected final String ICON_FILE_DIRECTORY = "Student Management/src/resources/icons/";
+    protected final String ICON_FILE_DIRECTORY = "student-management-system/v2/src/resources/icons/";
     
     public DataButton(ManagementTable mTable){
         
