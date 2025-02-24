@@ -16,6 +16,15 @@ v2
 - Added icons downloaded from svgrepo.com; Icons are under CC0 license
 - Added proper recognition for AutoCompletion.java by Thomas Bierhance; Article can be found in http://www.orbital-computer.de/JComboBox/
 
-v2 is the latest version for now.<br>
+v3
+- Fixed setting Programs and College Codes when editing data on the DataMap
+- Can now delete multiple rows of data for Students, Programs, and Colleges
+- Can now edit multiple rows of data for Students and Programs. Disabled for Colleges
+- Optimized constructors for DataInput files.
+- Optimized catch clauses for custom Exceptions
+- Added more javadocs
+
+Transferred previous versions on another branch. Main branch will only have the latest version. <br>
+v3 is the latest version for now.<br>
 
 Repository for a school activity on creating a student management system
