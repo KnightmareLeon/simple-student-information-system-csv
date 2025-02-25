@@ -266,7 +266,7 @@ public class StudentInput extends DataInput{
      * student's first name
      */
     public String getFN() throws EmptyInputException{
-        if(fnField.getText().isEmpty()){
+        if(fnField.getText().isBlank()){
             throw new EmptyInputException();
         }
         return fnField.getText();
@@ -279,7 +279,7 @@ public class StudentInput extends DataInput{
      * student's last name
      */
     public String getLN() throws EmptyInputException{
-        if(lnField.getText().isEmpty()){
+        if(lnField.getText().isBlank()){
             throw new EmptyInputException();
         }
         return lnField.getText();

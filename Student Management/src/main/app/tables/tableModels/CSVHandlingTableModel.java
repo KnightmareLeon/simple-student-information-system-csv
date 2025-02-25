@@ -110,9 +110,9 @@ public abstract class CSVHandlingTableModel extends DefaultTableModel{
      * Edits data on a selected row in the {@code CSVHandlingTableModel} and in 
      * the {@link DataMap}.
      * Also changes the table model's {@link #changed} state to {@code true}.
-     * @param row - selected row's index
+     * @param row - selected row's index.
      * @param newData - an array of {@code String} values from 
-     * {@link main.app.input.DataInput DataInput}
+     * {@link main.app.input.DataInput DataInput}.
      * @param dMap - {@link DataMap} that handles and maps all data during 
      * the application's runtime.
      */
@@ -125,6 +125,16 @@ public abstract class CSVHandlingTableModel extends DefaultTableModel{
         this.setChange(true);
     }
 
+    /**
+     * Edits multiple data on selected rows in the {@code CSVHandlingTableModel}
+     * and in the {@link DataMap}.
+     * Also changes the table model's {@link #changed} state to {@code true}.
+     * @param rows - {@code int} array containing the selected rows' indices.
+     * @param newData - an array of {@code String} values from 
+     * {@link main.app.input.DataInput DataInput}.
+     * @param dMap - {@link DataMap} that handles and maps all data during 
+     * the application's runtime.
+     */
     public void multiEditData(int[] rows, String[] newData, DataMap dMap){
         String[] keys = new String[rows.length];
         for(int i = 0; i < keys.length; i++){
@@ -140,6 +150,7 @@ public abstract class CSVHandlingTableModel extends DefaultTableModel{
         }
         this.setChange(true);
     }
+
     /**
      * Saves the data stored in the {@code CSVHandlingTableModel} into its
      * designated CSV file.
@@ -213,7 +224,8 @@ public abstract class CSVHandlingTableModel extends DefaultTableModel{
      * Edits data from the {@link DataMap} that the {@code CSVHandlingTableModel} is
      * designated to handle.
      * @param prevCode - existing {@code String} key for getting the value from the
-     * {@code CSVHandlingTableModel}'s designated {@code HashMap}
+     * {@code CSVHandlingTableModel}'s designated {@code HashMap} will replace previous 
+     * data.
      * @param newData - an array of {@code String} values from 
      * {@link main.app.input.DataInput DataInput}
      * @param dMap - {@link DataMap} that handles and maps all data during 
@@ -221,10 +233,17 @@ public abstract class CSVHandlingTableModel extends DefaultTableModel{
      */
     protected abstract void editDataOnMap(String prevCode, String[] newData, DataMap dMap);
 
+    /**
+     * Edits multiple data from the {@link DataMap} that the {@code CSVHandlingTableModel}
+     * is designated to handle.
+     * @param keys - {@code String} array that are keys for getting values from the
+     * {@code CSVHandlingTableModel}'s designated {@code HashMap}.
+     * @param newData - an array of {@code String} values from 
+     * {@link main.app.input.DataInput DataInput} that will replace previous data.
+     * @param dMap - {@link DataMap} that handles and maps all data during 
+     * the application's runtime.
+     */
     protected abstract void multiEditDataOnMap(String[] keys, String[] newData, DataMap dMap);
-
-    @Override
-    public boolean isCellEditable(int row, int column) {return false;}
 
     /**
      * Checks if the {@code CSVHandlingTableModel} has changed
@@ -238,4 +257,7 @@ public abstract class CSVHandlingTableModel extends DefaultTableModel{
      * @param changed - {@code boolean} value
      */
     public void setChange(boolean changed){this.changed = changed;}
+
+    @Override
+    public boolean isCellEditable(int row, int column) {return false;}
 }

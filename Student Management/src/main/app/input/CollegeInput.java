@@ -79,18 +79,6 @@ public class CollegeInput extends DataInput{
         
     }
 
-    /* 
-    @Override
-    protected void getData(ManagementTable mTable) throws NoRowSelectedException{
-        int row = mTable.getSelectedRow();
-        if(row == -1){throw new NoRowSelectedException();}
-        String prevCode = (String) mTable.getValueAt(row, 0);
-        String prevName = (String) mTable.getValueAt(row, 1);
-        
-        codeField.setText(prevCode);
-        nameField.setText(prevName);
-    }*/
-
     /**
      * Gets the inputted college's code from its designated {@code JTextField}
      * @return {@code String}
@@ -98,7 +86,7 @@ public class CollegeInput extends DataInput{
      * college's code
      */
     public String getCode() throws EmptyInputException{
-        if(codeField.getText().isEmpty()){
+        if(codeField.getText().isBlank()){
             throw new EmptyInputException();
         }
         return codeField.getText();
@@ -111,7 +99,7 @@ public class CollegeInput extends DataInput{
      * college's name
      */
     public String getName() throws EmptyInputException{
-        if(nameField.getText().isEmpty()){
+        if(nameField.getText().isBlank()){
             throw new EmptyInputException();
         }
         return nameField.getText();

@@ -127,7 +127,7 @@ public class ProgramInput extends DataInput{
      * program's code
      */
     public String getCode() throws EmptyInputException{
-        if(codeField.getText().isEmpty()){
+        if(codeField.getText().isBlank()){
             throw new EmptyInputException();
         }
         return codeField.getText();
@@ -140,7 +140,7 @@ public class ProgramInput extends DataInput{
      * program's name
      */
     public String getName() throws EmptyInputException{
-        if(nameField.getText().isEmpty()){
+        if(nameField.getText().isBlank()){
             throw new EmptyInputException();
         }
         return nameField.getText();

@@ -83,7 +83,7 @@ public class MainFrame extends JFrame{
 
     private Border padding = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
-    private SaveChecker listener = new SaveChecker(saveButton);
+    private SaveChecker saveChecker = new SaveChecker(saveButton);
 
     /**
      * Adds all components needed to the frame. Also adds the 
@@ -149,7 +149,7 @@ public class MainFrame extends JFrame{
         this.setVisible(true);  
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-        this.addWindowListener(this.listener);
+        this.addWindowListener(this.saveChecker);
 
     }
 }
