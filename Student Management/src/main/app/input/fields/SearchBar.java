@@ -1,7 +1,5 @@
 package main.app.input.fields;
 
-import java.awt.Dimension;
-
 import javax.swing.RowFilter;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
