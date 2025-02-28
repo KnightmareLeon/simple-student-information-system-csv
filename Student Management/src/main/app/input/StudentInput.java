@@ -79,13 +79,15 @@ public class StudentInput extends DataInput{
     private JRadioButton yFourButton = new JRadioButton("4");
     private JRadioButton yFiveButton = new JRadioButton("5");
     private JRadioButton yFivePlusButton = new JRadioButton("5+");
+    private JRadioButton yNoUpdateButton = new JRadioButton("NO UPDATE");
 
     //Input Buttons for Gender
     private ButtonGroup gList = new ButtonGroup();
     private JPanel gPanel = new JPanel();
-    private JRadioButton maleButton = new JRadioButton("MALE");
-    private JRadioButton femaleButton = new JRadioButton("FEMALE");
+    private JRadioButton maleButton = new JRadioButton("M");
+    private JRadioButton femaleButton = new JRadioButton("F");
     private JRadioButton othersButton = new JRadioButton("OTHERS");
+    private JRadioButton gNoUpdateButton = new JRadioButton("NO UPDATE");
 
     //Input List for Program Code
     private JComboBox<String> pcList;
@@ -138,7 +140,12 @@ public class StudentInput extends DataInput{
         this.pcList.addActionListener(new ActionListener(){ //To set text of pn when a new selection in pcList is done
             @Override
             public void actionPerformed(ActionEvent e) { 
-                pn.setText(mTable.getDMap().getProgram((String) pcList.getSelectedItem()).getName());
+                if(!((String) pcList.getSelectedItem()).equals("NO UPDATE")){
+                    pn.setText(mTable.getDMap().getProgram((String) pcList.getSelectedItem()).getName());
+                } else {
+                    pn.setText("");
+                }
+
             }
             
         });
@@ -192,6 +199,10 @@ public class StudentInput extends DataInput{
             this.panelGBC.gridy = 5; this.inputPanel.add(this.pcList, this.panelGBC);
             this.panelGBC.gridy = 6; this.inputPanel.add(this.pn, this.panelGBC);
         } else {
+            this.ylList.add(this.yNoUpdateButton); this.ylPanel.add(this.yNoUpdateButton); this.yNoUpdateButton.setActionCommand(this.yNoUpdateButton.getText());
+            this.gList.add(this.gNoUpdateButton); this.gPanel.add(this.gNoUpdateButton); this.gNoUpdateButton.setActionCommand(this.gNoUpdateButton.getText());
+            this.pcList.addItem("NO UPDATE");
+            this.pcList.setSelectedItem("NO UPDATE");
             this.panelGBC.gridx = panelGBC.gridy = 0; this.panelGBC.fill = GridBagConstraints.HORIZONTAL;
             this.inputPanel.add(this.ylLabel, this.panelGBC);
             this.panelGBC.gridy = 1; this.inputPanel.add(this.gLabel, this.panelGBC);

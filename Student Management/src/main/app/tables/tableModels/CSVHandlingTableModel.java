@@ -143,8 +143,12 @@ public abstract class CSVHandlingTableModel extends DefaultTableModel{
         this.multiEditDataOnMap(keys, newData, dMap);
         int tableI = this.getColumnCount() - 1;
         for(int row: rows){
-            for(int i = newData.length - 1; i > -1; i-- ){
-                this.setValueAt(newData[i], row, tableI--);
+            for(int i = newData.length - 1; i > -1; i--){
+                if(!newData[i].equals("NO UPDATE")){
+                    this.setValueAt(newData[i], row, tableI--);
+                } else {
+                    tableI--;
+                }
             }
             tableI = this.getColumnCount() - 1;
         }

@@ -94,17 +94,23 @@ public class EditStudentButton extends EditDataButton{
                 e.startErrorWindow(getActionButton());
             } 
         } else {
-            String[] data = {
-                stdInput.getYL(),
-                stdInput.getG(),
-                stdInput.getPC()};
-            int[] rowArray = new int[mTable.getSelectedRowCount()];
-            for(int i = 0; i < mTable.getSelectedRowCount(); i++){
-                rowArray[i] = mTable.convertRowIndexToModel(mTable.getSelectedRows()[i]);
+            try{
+                String[] data = {
+                    stdInput.getYL(),
+                    stdInput.getG(),
+                    stdInput.getPC()};
+                int[] rowArray = new int[mTable.getSelectedRowCount()];
+                for(int i = 0; i < mTable.getSelectedRowCount(); i++){
+                    rowArray[i] = mTable.convertRowIndexToModel(mTable.getSelectedRows()[i]);
+                }
+                mTable.getSTM().multiEditData(rowArray, data, mTable.getDMap());
+                JOptionPane.showMessageDialog(getActionButton(), "Students edited successfully!");
+                getDataFrame().dispose();
+            } catch (NullPointerExceptionWithWindow e){
+                e.printStackTrace();
+                e.startErrorWindow(getActionButton());
             }
-            mTable.getSTM().multiEditData(rowArray, data, mTable.getDMap());
-            JOptionPane.showMessageDialog(getActionButton(), "Students edited successfully!");
-            getDataFrame().dispose();
+            
         }
     }
         

@@ -162,9 +162,9 @@ public class DataMap {
         for(String id: ids){
             Student std = this.getStudent(id);
             String prevCode = std.getPC();
-            std.setYL(newData[0]);
-            std.setG(newData[1]);
-            if(!prevCode.equals(newData[2])){
+            if(!newData[0].equals("NO UPDATE")){std.setYL(newData[0]);}
+            if(!newData[1].equals("NO UPDATE")){std.setG(newData[1]);}
+            if(!prevCode.equals(newData[2]) && !newData[2].equals("NO UPDATE")){
                 this.getProgram(newData[2]).addStudent(std);
                 std.setPC(newData[2]);
                 this.getProgram(prevCode).removeStudent(std);
