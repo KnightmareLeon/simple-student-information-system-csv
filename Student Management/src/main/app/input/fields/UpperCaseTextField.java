@@ -16,7 +16,7 @@ public class UpperCaseTextField extends JTextField{
 
     public UpperCaseTextField(){
         ((AbstractDocument) this.getDocument()).setDocumentFilter(filter);
-        this.setPreferredSize(new Dimension(100,20));
+        this.setPreferredSize(new Dimension(400,20));
     }
 
 }

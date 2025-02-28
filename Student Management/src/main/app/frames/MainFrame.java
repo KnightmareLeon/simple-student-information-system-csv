@@ -20,6 +20,7 @@ import main.app.buttons.changeTable.*;
 import main.app.buttons.delete.*;
 import main.app.buttons.edit.*;
 import main.app.input.fields.SearchBar;
+import main.app.input.fields.SearchFieldList;
 import main.app.tables.ManagementTable;
 
 /**
@@ -33,10 +34,11 @@ import main.app.tables.ManagementTable;
  */
 public class MainFrame extends JFrame{
     private ManagementTable mTable = new ManagementTable();
-    private JScrollPane sp = new JScrollPane(mTable);
+    private JScrollPane sp = new JScrollPane(this.mTable);
 
-    private SearchBar searchBar = new SearchBar(mTable.getRowSorter());
-    private SaveButton saveButton = new SaveButton(mTable, this);
+    private SearchFieldList searchFieldList = new SearchFieldList(this.mTable);
+    private SearchBar searchBar = new SearchBar(this.mTable.getRowSorter(), this.searchFieldList);
+    private SaveButton saveButton = new SaveButton(this.mTable, this);
 
     private AddDataButton addStdButton = new AddStudentButton(mTable, this);
     private AddDataButton addPrgButton = new AddProgramButton(mTable, this);
@@ -54,20 +56,21 @@ public class MainFrame extends JFrame{
         new AddDataButton[]{addStdButton, addPrgButton, addClgButton}, 
         new DeleteDataButton[]{delStdButton, delPrgButton, delClgButton},
         new EditDataButton[]{editStdButton, editPrgButton, editClgButton},
-        searchBar);
+        searchBar, searchFieldList);
     private ChangeToTableButton cPrgTblButton = new ChangeToProgramTableButton(sp, mTable,
         new AddDataButton[]{addPrgButton, addStdButton, addClgButton}, 
         new DeleteDataButton[]{delPrgButton, delStdButton, delClgButton},
         new EditDataButton[]{editPrgButton, editStdButton, editClgButton},
-        searchBar);
+        searchBar, searchFieldList);
     private ChangeToTableButton cClgTblButton = new ChangeToCollegeTableButton(sp, mTable, 
         new AddDataButton[]{addClgButton, addStdButton, addPrgButton},
         new DeleteDataButton[]{delClgButton, delPrgButton, delStdButton},
         new EditDataButton[]{editClgButton, editStdButton, editPrgButton},
-        searchBar);
+        searchBar, searchFieldList);
     private ButtonGroup changeTableGroup = new ButtonGroup();
 
     private JLabel searchLabel = new JLabel("Search: ");
+    private JLabel by = new JLabel("By: ");
         
     private JPanel content = new JPanel(new BorderLayout());
 
@@ -118,11 +121,26 @@ public class MainFrame extends JFrame{
 
         this.toolsGBC.gridx = 0; this.toolsGBC.gridy = 0;
         this.toolsGBC.insets = new Insets(0, 0, 15, 0);
+        this.toolsGBC.anchor = GridBagConstraints.LINE_START;
         this.tools.add(searchLabel, toolsGBC); 
-        this.toolsGBC.gridx = 1; this.toolsGBC.weightx = 10;
-        this.toolsGBC.fill = GridBagConstraints.BOTH;
+        
+        this.toolsGBC.gridx = 1; 
+        this.toolsGBC.insets = new Insets(0, 10, 15, 0);
+        this.toolsGBC.fill = GridBagConstraints.VERTICAL;
         this.tools.add(searchBar, toolsGBC);
-        this.toolsGBC.gridx = 2; this.toolsGBC.fill = GridBagConstraints.NONE; 
+
+        this.toolsGBC.gridx = 2;
+        this.toolsGBC.anchor = GridBagConstraints.WEST;
+        this.toolsGBC.fill = GridBagConstraints.VERTICAL;
+        
+        this.tools.add(by, toolsGBC);
+
+        this.toolsGBC.gridx = 3;
+        this.toolsGBC.weightx = 10;
+        this.tools.add(searchFieldList, toolsGBC);
+
+        this.toolsGBC.fill = GridBagConstraints.BOTH;
+        this.toolsGBC.gridx = 4; this.toolsGBC.fill = GridBagConstraints.NONE; 
         this.toolsGBC.anchor = GridBagConstraints.LINE_END;
         this.tools.add(dataButtons, toolsGBC);
 

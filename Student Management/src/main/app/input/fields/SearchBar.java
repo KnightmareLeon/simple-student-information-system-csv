@@ -1,5 +1,7 @@
 package main.app.input.fields;
 
+import java.awt.Dimension;
+
 import javax.swing.RowFilter;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -9,7 +11,10 @@ import javax.swing.table.TableRowSorter;
 /**
  * A custom {@code JTextField} that is a child class of {@link UpperCaseTextField}.
  * Filters a {@code JTable} by whatever is the input text of this text field 
- * through a {@code TableRowSorter}.
+ * through a {@code TableRowSorter}. The columns that it filters is based on 
+ * {@link SearchFieldList}, if the chosen item is "Any", this will filter
+ * the {@code JTable} based on any column, else it will be based on the
+ * chosen choice of the user
  * 
  * <p>
  * For this application, it filters the {@code ManagementTable}.
@@ -17,7 +22,7 @@ import javax.swing.table.TableRowSorter;
  * @see main.app.tables.ManagementTable {@code ManagementTable}
  */
 public class SearchBar extends UpperCaseTextField{
-    public SearchBar(TableRowSorter<TableModel> rowSorter){
+    public SearchBar(TableRowSorter<TableModel> rowSorter, SearchFieldList searchFieldList){
         this.getDocument().addDocumentListener(new DocumentListener(){
 
             @Override
@@ -26,8 +31,10 @@ public class SearchBar extends UpperCaseTextField{
 
                 if (text.trim().length() == 0) {
                     rowSorter.setRowFilter(null);
-                } else {
+                } else if (searchFieldList.getIndex() == -1){
                     rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
+                } else {
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text, searchFieldList.getIndex()));
                 }
             }
 
@@ -37,8 +44,10 @@ public class SearchBar extends UpperCaseTextField{
 
                 if (text.trim().length() == 0) {
                     rowSorter.setRowFilter(null);
-                } else {
+                } else if (searchFieldList.getIndex() == -1){
                     rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
+                } else {
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text, searchFieldList.getIndex()));
                 }
             }
 

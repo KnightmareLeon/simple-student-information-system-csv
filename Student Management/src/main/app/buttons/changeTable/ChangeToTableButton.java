@@ -7,6 +7,7 @@ import main.app.buttons.add.AddDataButton;
 import main.app.buttons.delete.DeleteDataButton;
 import main.app.buttons.edit.EditDataButton;
 import main.app.input.fields.SearchBar;
+import main.app.input.fields.SearchFieldList;
 import main.app.tables.ManagementTable;
 import main.app.tables.tableModels.CSVHandlingTableModel;
 
@@ -21,9 +22,10 @@ import main.app.tables.tableModels.CSVHandlingTableModel;
 public abstract class ChangeToTableButton extends JToggleButton{
     public void changeToTable(JScrollPane sp, CSVHandlingTableModel tm, ManagementTable mTable, 
         AddDataButton[] aDButtons, DeleteDataButton[] dDButtons, EditDataButton[] eDButtons,
-        SearchBar searchBar){
+        SearchBar searchBar, SearchFieldList searchFieldList){
         mTable.setModel(tm);
         sp.setViewportView(mTable);
+
         aDButtons[0].setVisible(true);
         aDButtons[1].setVisible(false);
         aDButtons[2].setVisible(false);
@@ -37,5 +39,6 @@ public abstract class ChangeToTableButton extends JToggleButton{
         eDButtons[2].setVisible(false);
         
         searchBar.setText("");
+        searchFieldList.set();
     }
 }
