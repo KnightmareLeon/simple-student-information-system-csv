@@ -20,12 +20,13 @@ v3
 - Fixed setting Programs and College Codes when editing data on the DataMap
 - Can now delete multiple rows of data for Students, Programs, and Colleges
 - Can now edit multiple rows of data for Students and Programs. Disabled for Colleges
+- Can now search by one column
 - Will now recognize input on text fields with only whitespace characters as empty input.
 - Optimized constructors for DataInput files.
 - Optimized catch clauses for custom Exceptions
 - Added more javadocs
 
-Transferred previous versions on another branch. The main branch will only have the latest version. <br>
+Transferred previous versions to another branch. The main branch will only have the latest version. <br>
 v3 is the latest version for now.<br>
 
 Repository for a school activity on creating a student management system
