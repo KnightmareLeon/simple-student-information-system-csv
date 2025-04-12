@@ -1,7 +1,7 @@
 {
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "Student Management/lib/flatlaf-3.5.4.jar"
-    ],
-    "java.dependency.packagePresentation": "hierarchical"
+        "lib/**/*.jar"
+    ]
 }
