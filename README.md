@@ -29,4 +29,6 @@ v3
 Transferred previous versions to another branch. The main branch will only have the latest version. <br>
 v3 is the latest version for now.<br>
 
-Repository for a school activity on creating a student management system
+Repository for a school activity on creating a student management system.
+
+Final Score: 95/100
