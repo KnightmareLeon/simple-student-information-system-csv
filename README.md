@@ -1,4 +1,4 @@
-# student-management-system
+# simple-student-information-system-csv
 v1
 - All basic requirements for the project are done; Requirements are: Create, read, update, delete, and list, along with sorting and searching
 
